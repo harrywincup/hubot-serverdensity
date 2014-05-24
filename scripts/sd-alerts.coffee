@@ -20,6 +20,9 @@ class SDAlerts
 		@robot.hear /^\/sd (resume|pause) (?:alert)?(?:\s)?([a-z0-9]{24})?$/i, @updateState
 		@robot.hear /^\/sd open alerts(?:\s?)([a-z0-9]{24})?\?$/i, @listOpen
 		@robot.hear /^\/sd paused alerts\?$/i, @listPaused
+		@robot.hear /^\/sd alerts okay\?$/i, @test
+
+	test: (msg) -> msg.reply "Okay."
 
 	listPaused: (msg) =>
 		msg.send "Fetching paused alerts..."

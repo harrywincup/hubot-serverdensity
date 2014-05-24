@@ -14,6 +14,9 @@ class SDInventory
 
 	constructor: (@robot) ->
 		robot.hear /^\/sd list ([a-z]+)$/i, @list
+		robot.hear /^\/sd inventory okay\?$/i, @test
+
+	test: (msg) -> msg.reply "Okay."
 
 	list: (msg) =>
 		itemType = msg.match[1].trim()
