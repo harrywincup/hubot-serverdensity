@@ -1,6 +1,6 @@
 {
   "name": "hubot-serverdensity",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hubot commands for Server Density",
   "main": "index.coffee",
   "scripts": {
