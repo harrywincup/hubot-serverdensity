@@ -1,0 +1,26 @@
+{
+  "name": "hubot-serverdensity",
+  "version": "0.0.0",
+  "description": "Hubot commands for Server Density",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/harrywincup/hubot-serverdensity.git"
+  },
+  "keywords": [
+    "hubot",
+    "serverdensity",
+    "sd",
+    "server",
+    "density"
+  ],
+  "author": "Harry Wincup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harrywincup/hubot-serverdensity/issues"
+  },
+  "homepage": "https://github.com/harrywincup/hubot-serverdensity"
+}
