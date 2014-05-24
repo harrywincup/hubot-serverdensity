@@ -94,7 +94,9 @@ class SDAlerts
 					if json.length is 0
 						msg.send 'No open alerts. Good. Good.'
 					else
-						output = "\n\n#{json.length} open alert(s)\n"
+						multiple = json.length isnt 1
+
+						output = "\n\n#{json.length} open alert" + (if multiple then 's' else '') + "\n"
 
 						for alert, index in json
 							output += "\n#{index + 1}) #{alert.config.fullField} #{alert.config.comparison} #{alert.config.value} for #{alert.config.subjectType} (#{alert.config.subjectId}) - [Config: #{alert.config._id}]"
