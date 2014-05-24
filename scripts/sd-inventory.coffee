@@ -13,7 +13,7 @@ class SDInventory
 	baseURL: 'https://api.serverdensity.io'
 
 	constructor: (@robot) ->
-		robot.respond /^\/sd list ([a-z]+)$/i, @list
+		robot.hear /^\/sd list ([a-z]+)$/i, @list
 
 	list: (msg) =>
 		itemType = msg.match[1].trim()

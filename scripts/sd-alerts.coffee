@@ -17,9 +17,9 @@ class SDAlerts
 	constructor: (@robot) -> @createCommands()
 
 	createCommands: =>
-		@robot.respond /^\/sd (resume|pause) (?:alert)?(?:\s)?([a-z0-9]{24})?$/i, @updateState
-		@robot.respond /^\/sd open alerts(?:\s?)([a-z0-9]{24})?\?$/i, @listOpen
-		@robot.respond /^\/sd paused alerts\?$/i, @listPaused
+		@robot.hear /^\/sd (resume|pause) (?:alert)?(?:\s)?([a-z0-9]{24})?$/i, @updateState
+		@robot.hear /^\/sd open alerts(?:\s?)([a-z0-9]{24})?\?$/i, @listOpen
+		@robot.hear /^\/sd paused alerts\?$/i, @listPaused
 
 	listPaused: (msg) =>
 		msg.send "Fetching paused alerts..."
