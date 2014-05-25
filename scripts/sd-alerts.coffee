@@ -14,6 +14,18 @@ class SDAlerts
 	apiToken: process.env.HUBOT_SD_API_TOKEN
 	baseURL: 'https://api.serverdensity.io'
 
+	comparisons:
+		'c': 'contains'
+		'nc': 'does not contain'
+		'lt': '<'
+		'gt': '>'
+		'lte': '<='
+		'gte': '>='
+		'eq': '=='
+		'neq': '!='
+		're': 'matches regex'
+		'nre': 'does not match regex'
+
 	constructor: (@robot) -> @createCommands()
 
 	createCommands: =>
@@ -61,7 +73,7 @@ class SDAlerts
 						output = "\n\n#{json.length} paused alert" + (if multiple then 's' else '')
 
 						for alert, index in json
-							output += "\n#{index + 1}) #{alert.fullField} #{alert.comparison} #{alert.value} for #{alert.subjectType} (#{alert.subjectId}) [_id: #{alert._id}]"
+							output += "\n#{index + 1}) #{alert.fullField} #{@comparisons[alert.comparison]} #{alert.value} for #{alert.subjectType} (#{alert.subjectId}) [_id: #{alert._id}]"
 
 						output += "\n\n"
 
@@ -83,7 +95,7 @@ class SDAlerts
 
 			.query(params)
 
-			.get() (error, response, body) ->
+			.get() (error, response, body) =>
 				if error
 					msg.send "HTTP Error: #{error}"
 
@@ -102,7 +114,7 @@ class SDAlerts
 						output = "\n\n#{json.length} open alert" + (if multiple then 's' else '') + "\n"
 
 						for alert, index in json
-							output += "\n#{index + 1}) #{alert.config.fullField} #{alert.config.comparison} #{alert.config.value} for #{alert.config.subjectType} (#{alert.config.subjectId}) - [Config: #{alert.config._id}]"
+							output += "\n#{index + 1}) #{alert.config.fullField} #{@comparisons[alert.config.comparison]} #{alert.config.value} for #{alert.config.subjectType} (#{alert.config.subjectId}) - [Config: #{alert.config._id}]"
 
 						output += "\n\n"
 
